@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.16)
-project(1_HelloCV)
+project(001_HelloCV)
 
 set(CMAKE_CXX_STANDARD 14)
 
@@ -20,8 +20,8 @@ message(STATUS "    headers: 	${OpenCV_INCLUDE_DIRS}")
 message(STATUS "    libraries: 	${OpenCV_LIBS}")
 INCLUDE_DIRECTORIES({OpenCV_INCLUDE_DIRS})
 AUX_SOURCE_DIRECTORY(. SRC_LIST)
-ADD_EXECUTABLE(1_HelloCV ${SRC_LIST})
-TARGET_LINK_LIBRARIES(1_HelloCV ${OpenCV_LIBS})
+ADD_EXECUTABLE(001_HelloCV ${SRC_LIST})
+TARGET_LINK_LIBRARIES(001_HelloCV ${OpenCV_LIBS})
 
 #link_directories(${PATH_OPENCV_HOME}/build/lib) #添加动态连接库的路径
 
