@@ -1,0 +1,3 @@
+/home/zhaohad/dev/demos/CppProjects/CVPath/008_BasicDrawing/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/zhaohad/dev/demos/CppProjects/CVPath/008_BasicDrawing/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/zhaohad/dev/demos/CppProjects/CVPath/008_BasicDrawing/cmake-build-debug/CMakeFiles/008_BasicDrawing.dir
