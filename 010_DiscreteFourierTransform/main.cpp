@@ -12,6 +12,8 @@ int main() {
     std::cout << "Hello, World!" << std::endl;
     // string img_path = "../bvimg10.jpg";
     // string img_path = "../bvimg20.jpg";
+    // string img_path = "../imageTextN.png";
+    // string img_path = "../imageTextR.png";
     string img_path = "../lena.jpg";
     Mat I = imread(img_path, IMREAD_GRAYSCALE);
     imshow("原图", I);
