@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 14)
 
 set(PATH_OPENCV_HOME /home/zhaohad/OpenCV)
 
-set(OpenCV_DIR ~/bin/opencv/build_opencv)
+set(OpenCV_DIR /home/zhaohad/OpenCV/build)
 FIND_PACKAGE(OpenCV REQUIRED)
 message(STATUS "OpenCV library status:")
 message(STATUS "    version: ${OpenCV_VERSION}")
