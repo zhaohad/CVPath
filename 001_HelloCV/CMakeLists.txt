@@ -12,7 +12,7 @@ set(PATH_OPENCV_HOME /home/zhaohad/OpenCV)
 #        ${PATH_OPENCV_HOME}/opencv-master/modules/videoio/include
 #        ${PATH_OPENCV_HOME}/build)
 
-set(OpenCV_DIR /home/zhaohad/OpenCV/build)
+set(OpenCV_DIR ~/bin/opencv/build_opencv)
 FIND_PACKAGE(OpenCV REQUIRED)
 message(STATUS "OpenCV library status:")
 message(STATUS "    version: 	${OpenCV_VERSION}")
