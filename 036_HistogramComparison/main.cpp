@@ -43,7 +43,7 @@ int main() {
     Mat hist_test1;
     Mat hist_test2;
 
-    calcHist(&hsv_base, 1, channels, Mat(), hist_base, 2, histSize, ranges, true, false);
+    calcHist(&hsv_base, 1, channels, Mat(), hist_base, 2, histSize, ranges, true, false);// 直方图对亮度和灰度比较敏感，使用HSV转换后的图片去掉V参数，只对色域和饱和度进行比较
     normalize(hist_base, hist_base, 0, 1, NORM_MINMAX, -1, Mat());
 
     calcHist(&hsv_half_down, 1, channels, Mat(), hist_half_down, 2, histSize, ranges, true, false);
