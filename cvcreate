@@ -1,0 +1,90 @@
+#!/bin/bash
+
+OPENCV_PATH="/home/zhaohad/bin/opencv/build"
+DEMO_NAME=$1
+
+set -e
+
+function show_help() {
+    echo "Usage:"
+    echo "    cvcreate [Demo_Name]"
+}
+
+function write_cpp() {
+    echo "#include <iostream>" > main.cpp
+    echo "#include <opencv2/core.hpp>" >> main.cpp
+    echo "#include <opencv2/imgcodecs.hpp>" >> main.cpp
+    echo "#include <opencv2/highgui.hpp>" >> main.cpp
+    echo "#include <opencv2/imgproc.hpp>" >> main.cpp
+    echo "" >> main.cpp
+    echo "using namespace cv;" >> main.cpp
+    echo "using namespace std;" >> main.cpp
+    echo "" >> main.cpp
+    echo "int main() {" >> main.cpp
+    echo "    const char * fpath = \"../../images/xianjianyueqingshu_s.jpg\";" >> main.cpp
+    echo "    Mat src = imread(fpath, IMREAD_COLOR);" >> main.cpp
+    echo "    if (src.empty()) {" >> main.cpp
+    echo "        cout << \"Cannot open \" << fpath << endl;" >> main.cpp
+    echo "        return -1;" >> main.cpp
+    echo "    }" >> main.cpp
+    echo "" >> main.cpp
+    echo "    imshow(\"src\", src);" >> main.cpp
+    echo "    waitKey(0);" >> main.cpp
+    echo "    return 0;" >> main.cpp
+    echo "}" >> main.cpp
+}
+
+function write_camke() {
+    echo "cmake_minimum_required(VERSION 3.16)" > CMakeLists.txt
+    echo "project($DEMO_NAME)" >> CMakeLists.txt
+    echo "" >> CMakeLists.txt
+    echo "set(CMAKE_CXX_STANDARD 14)" >> CMakeLists.txt
+    echo "" >> CMakeLists.txt
+    echo "set(PATH_OPENCV_HOME $OPENCV_PATH)" >> CMakeLists.txt
+    echo "" >> CMakeLists.txt
+    echo "set(OpenCV_DIR $OPENCV_PATH)" >> CMakeLists.txt
+    echo "find_package(OpenCV REQUIRED)" >> CMakeLists.txt
+    echo "message(\"OpenCV library status:\")" >> CMakeLists.txt
+    echo "message(\"    version: \${OpenCV_VERSION}\")" >> CMakeLists.txt
+    echo "message(\"    headers: \${OpenCV_INCLUDE_DIRS}\")" >> CMakeLists.txt
+    echo "message(\"    libraries: \${OpenCV_LIBS}\")" >> CMakeLists.txt
+    echo "" >> CMakeLists.txt
+    echo "include_directories(\${OpenCV_INCLUDE_DIRS})" >> CMakeLists.txt
+    echo "aux_source_directory(. SRC_LIST)" >> CMakeLists.txt
+    echo "add_executable($DEMO_NAME \${SRC_LIST})" >> CMakeLists.txt
+    echo "target_link_libraries($DEMO_NAME \${OpenCV_LIBS})" >> CMakeLists.txt
+}
+
+while getopts 'h' p; do
+    case $p in
+        h)
+            show_help
+            exit 0
+            ;;
+    esac
+done
+
+shift $(($OPTIND - 1))
+
+if [ $# -ne 1 ]; then
+    show_help
+    exit -1;
+fi
+
+if [ ! $1 ]; then
+    show_help
+    exit -1
+fi
+
+if [ ! -d $1 ]; then
+    mkdir $1
+else
+    echo "Directory \"$1\" exists"
+    exit -1
+fi
+
+cd $1
+write_camke
+write_cpp
+
+echo "Done!"
