@@ -8,7 +8,7 @@ using namespace std;
 using namespace cv;
 
 int main() {
-    const char * fpath = "../../images/bvimg20.jpg";
+    const char * fpath = "../../images/xianjianyueqingshu.jpg";
     Mat src = imread(fpath, IMREAD_COLOR);
     if (src.empty()) {
         cout << "Cannot open " << fpath << endl;

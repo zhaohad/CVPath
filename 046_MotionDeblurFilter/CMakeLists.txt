@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 3.16)
-project(025_LaplaceOperator)
+project(046_MotionDeblurFilter)
 
 set(CMAKE_CXX_STANDARD 14)
 
-set(PATH_OPENCV_HOME /home/zhaohad/OpenCV)
+set(PATH_OPENCV_HOME /home/zhaohad/bin/opencv/build)
 
 set(OpenCV_DIR /home/zhaohad/bin/opencv/build)
 find_package(OpenCV REQUIRED)
@@ -14,5 +14,5 @@ message("    libraries: ${OpenCV_LIBS}")
 
 include_directories(${OpenCV_INCLUDE_DIRS})
 aux_source_directory(. SRC_LIST)
-add_executable(025_LaplaceOperator ${SRC_LIST})
-target_link_libraries(025_LaplaceOperator ${OpenCV_LIBS})
+add_executable(046_MotionDeblurFilter ${SRC_LIST})
+target_link_libraries(046_MotionDeblurFilter ${OpenCV_LIBS})
