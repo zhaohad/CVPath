@@ -3,9 +3,9 @@ project(026_CannyEdgeDetector)
 
 set(CMAKE_CXX_STANDARD 14)
 
-set(PATH_OPENCV_HOME /home/zhaohad/OpenCV)
+set(PATH_OPENCV_HOME /home/zhaohad/bin/opencv/build)
 
-set(OpenCV_DIR /home/zhaohad/OpenCV/build)
+set(OpenCV_DIR /home/zhaohad/bin/opencv/build)
 find_package(OpenCV REQUIRED)
 message("OpenCV library status:")
 message("    version: ${OpenCV_VERSION}")
