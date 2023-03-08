@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.16)
-project(035_HistogramCalculation)
+project(HistogramMatching)
 
 set(CMAKE_CXX_STANDARD 14)
 
@@ -14,5 +14,5 @@ message("    libraries: ${OpenCV_LIBS}")
 
 include_directories(${OpenCV_INCLUDE_DIRS})
 aux_source_directory(. SRC_LIST)
-add_executable(035_HistogramCalculation ${SRC_LIST})
-target_link_libraries(035_HistogramCalculation ${OpenCV_LIBS})
+add_executable(HistogramMatching ${SRC_LIST})
+target_link_libraries(HistogramMatching ${OpenCV_LIBS})
